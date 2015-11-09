@@ -31,7 +31,62 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class MyModel < ActiveRecord::Base
+  # ...
+  # <<<===--- AFTER STATE MACHINE DEFINITION ---===>>>
+  # ...
+  include StrictStates.checker(
+              klass: self,
+              machines: {
+                  state: :pluginaweek,
+                  awesome_level: :pluginaweek,
+                  bogus_level: ->(context, machine_name) {
+                    context.state_machines[machine_name.to_sym].states.map(&:name)
+                  }
+              }
+          )
+end
+```
+
+# strict_state
+
+Given a state return the same state if they are valid for the given state machine,
+otherwise raise an error
+
+Example:
+
+```ruby
+MyModel.strict_state(:good, machine_name: :state)
+=> "good"
+MyModel.strict_state(:not_actually_a_thing, machine_name: :drive_status) # Can support multiple state machines per model
+=> KeyError: key not found: :not_actually_a_thing
+```
+
+This is better than creating discrete constants for each potential state string in a state machine,
+because this checks, at app boot, to ensure the states are correct.
+(e.g. "gift card", vs "gift_card").
+      
+# strict_state_array
+
+Given an array of states return the same array of states if they are valid for the given state machine,
+otherwise raise an error
+
+Example:
+
+```ruby
+MyModel.strict_state_array(:good, :bad, :on_hold, machine_name: :state)
+=> ["good", "bad", "on_hold"]
+MyModel.strict_state(:good, :bad, :steve_martin, machine_name: :drive_status) # Can support multiple state machines per model
+=> KeyError: key not found: :steve_martin
+```
+
+This is better than creating discrete constants for each potential set of states in a state machine,
+because this checks, at app boot, to ensure the states are correct.
+Raw strings in scopes and queries, not created via this method,
+will not be bound to the state machine's implementation, so they will fail silently.
+e.g. typos like "gift card" vs "gift_card" and no error raised
+
 
 ## Development
 
