@@ -135,6 +135,18 @@ module StrictStates
   #         bogus_level:    ["new", "pending", "goofy"]
   #       }
   #     }
+  #
+  # Result:
+  #
+  #   MyModel.strict_state_lookup
+  #   =>  {
+  #         :state =>
+  #           { :one => "one", :two => "two", :three => "three" }
+  #         :awesome_level =>
+  #           { :not_awesome => "not_awesome", :awesome_11 => "awesome_11", :bad => "bad", :good => "good" },
+  #         :bogus_level =>
+  #           { :new => "new", :pending => "pending", :goofy => "goofy" }
+  #       }
   def self.set_strict_state_lookup(config)
     klass = config[:klass]
     machines = config[:machines]

@@ -13,6 +13,10 @@ Expected to be compatible with, and support multiple state machines per model, f
 
 Please file a bug if compatibility is missing for your state machine.
 
+`:machine_name` as `:state` is so universally common that it has been made the default when not provided.
+
+Most apps only use one state machine implementation, like aasm, or state_machines, however, apps can (and do) use multiple state machine implementations at the same time.  This gem supports that, and keeps all the states per-model, per-machine, per-engine separate!
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -49,7 +53,7 @@ class MyModel < ActiveRecord::Base
 end
 ```
 
-# strict_state
+### strict_state
 
 Given a state return the same state if they are valid for the given state machine,
 otherwise raise an error
@@ -59,7 +63,10 @@ Example:
 ```ruby
 MyModel.strict_state(:good, machine_name: :state)
 => "good"
-MyModel.strict_state(:not_actually_a_thing, machine_name: :drive_status) # Can support multiple state machines per model
+```
+
+```ruby
+MyModel.strict_state(:not_actually_a_thing, machine_name: :drive_status)
 => KeyError: key not found: :not_actually_a_thing
 ```
 
@@ -67,17 +74,20 @@ This is better than creating discrete constants for each potential state string 
 because this checks, at app boot, to ensure the states are correct.
 (e.g. "gift card", vs "gift_card").
       
-# strict_state_array
+### strict_state_array
 
 Given an array of states return the same array of states if they are valid for the given state machine,
-otherwise raise an error
+otherwise raise an error.
 
 Example:
 
 ```ruby
 MyModel.strict_state_array(:good, :bad, :on_hold, machine_name: :state)
 => ["good", "bad", "on_hold"]
-MyModel.strict_state(:good, :bad, :steve_martin, machine_name: :drive_status) # Can support multiple state machines per model
+```
+
+```ruby
+MyModel.strict_state_array(:good, :bad, :steve_martin, machine_name: :drive_status)
 => KeyError: key not found: :steve_martin
 ```
 
@@ -87,6 +97,37 @@ Raw strings in scopes and queries, not created via this method,
 will not be bound to the state machine's implementation, so they will fail silently.
 e.g. typos like "gift card" vs "gift_card" and no error raised
 
+### strict_all_state_names
+
+Given the name of a state machine, returns all states defined by the state machine, as an array of strings.
+
+```ruby
+MyModel.strict_all_state_names(machine_name: :state)
+=> ["good", "bad", "on_hold"]
+```
+
+### state_lookup
+
+Given a machine name return the StrictStates::StrictHash used to lookup valid states.
+
+```ruby
+MyModel.state_lookup(machine_name: :state)
+=> { :new => "new", :pending => "pending", :goofy => "goofy" }
+```
+
+### strict_state_lookup
+
+Returns a StrictStates::StrictHash representation of all the state machine state definitions in the class.  A class can have more than one state machine.
+
+```ruby
+MyModel.strict_state_lookup
+=>  {
+      :awesome_level =>
+        { :not_awesome => "not_awesome", :awesome_11 => "awesome_11", :bad => "bad", :good => "good" },
+      :bogus_level =>
+        { :new => "new", :pending => "pending", :goofy => "goofy" }
+    }
+```
 
 ## Development
 

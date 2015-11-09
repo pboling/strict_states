@@ -19,23 +19,15 @@ module StrictStates
     #     end
     #
     def self.included(base)
-      # state_lookup ends up like this for a class with state machine(s):
-      #
-      #   MyModel.state_lookup
-      #   =>  {
-      #         :awesome_level =>
-      #           { :not_awesome => "not_awesome", :awesome_11 => "awesome_11", :bad => "bad", :good => "good" },
-      #         :bogus_level =>
-      #           { :new => "new", :pending => "pending", :goofy => "goofy" }
-      #       }
       base.send(:extend, ClassMethods)
     end
 
     module ClassMethods
-      # machine_name as :state is so universally common that it may as well be the default.
-      # Most apps only use one state machine implementation, like aasm, or state_machines, however,
-      #   apps can (and do) use multiple state machine implementations at the same time.
-      # This gem supports that, and keeps all the states per-model, per-machine, per-engine separate!
+      # Given a state return the same state if they are valid for the given state machine,
+      #
+      #   MyModel.state_lookup(machine_name: machine_name)
+      #   => { :new => "new", :pending => "pending", :goofy => "goofy" }
+      #
       def state_lookup(machine_name: :state)
         strict_state_lookup[machine_name.to_sym]
       end
@@ -55,7 +47,7 @@ module StrictStates
       #   (e.g. "gift card", vs "gift_card").
       #
       def strict_state(state, machine_name: :state)
-        strict_state_lookup[machine_name.to_sym][state.to_sym] # This will raise an error if the state key is not a valid state
+        state_lookup(machine_name: machine_name)[state.to_sym] # This will raise an error if the state key is not a valid state
       end
 
       # Given an array of states return the same array of states if they are valid for the given state machine,
@@ -65,7 +57,7 @@ module StrictStates
       #
       #   MyModel.strict_state_array(:good, :bad, :on_hold, machine_name: :state)
       #   => ["good", "bad", "on_hold"]
-      #   MyModel.strict_state(:good, :bad, :steve_martin, machine_name: :drive_status) # Can support multiple state machines per model
+      #   MyModel.strict_state_array(:good, :bad, :steve_martin, machine_name: :drive_status) # Can support multiple state machines per model
       #   => KeyError: key not found: :steve_martin
       #
       # This is better than creating discrete constants for each potential set of states in a state machine,
@@ -80,7 +72,7 @@ module StrictStates
 
       # Given the name of a state machine, returns all states defined by the state machine, as an array of strings.
       def strict_all_state_names(machine_name: :state)
-        strict_state_lookup[machine_name.to_sym].values # keys would be symbols!
+        state_lookup(machine_name: machine_name).values # keys would be symbols!
       end
     end
   end
