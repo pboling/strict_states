@@ -141,7 +141,7 @@ module StrictStates
     class << klass
       attr_reader :strict_state_lookup
     end
-    klass.instance_variable_set(:@strict_state_lookup, {})
+    klass.instance_variable_set(:@strict_state_lookup, StrictStates::StrictHash.new)
     machines.each do |machine_name, state_array|
       klass.strict_state_lookup[machine_name.to_sym] = StrictStates.create_strict_state_lookup(state_array).freeze
     end
