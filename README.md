@@ -3,6 +3,33 @@
 Provides utility lookup methods to be used to access the states of your state machine to ensure you never typo them.
 Will raise errors on state machine state typos immediately, so if the code runs you know it is correct.
 
+| Project                 |  StrictStates    |
+|------------------------ | ----------------- |
+| gem name                |  strict_states   |
+| license                 |  MIT              |
+| expert support          |  [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github) |
+| download rank               |  [![Total Downloads](https://img.shields.io/gem/rt/strict_states.svg)](https://rubygems.org/gems/strict_states) |
+| version                 |  [![Gem Version](https://badge.fury.io/rb/strict_states.png)](http://badge.fury.io/rb/strict_states) |
+| dependencies            |  [![Dependency Status](https://gemnasium.com/pboling/strict_states.png)](https://gemnasium.com/pboling/strict_states) |
+| code quality            |  [![Code Climate](https://codeclimate.com/github/pboling/strict_states.png)](https://codeclimate.com/github/pboling/strict_states) |
+| inline documenation     |  [![Inline docs](http://inch-ci.org/github/pboling/strict_states.png)](http://inch-ci.org/github/pboling/strict_states) |
+| continuous integration  |  [![Build Status](https://secure.travis-ci.org/pboling/strict_states.png?branch=master)](https://travis-ci.org/pboling/strict_states) |
+| test coverage           |  [![Coverage Status](https://coveralls.io/repos/pboling/strict_states/badge.png)](https://coveralls.io/r/pboling/strict_states) |
+| homepage                |  [on Github.com][homepage] |
+| documentation           |  [on Rdoc.info][documentation] |
+| live chat               |  [![Join the chat at https://gitter.im/pboling/strict_states](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pboling/strict_states?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [on Coderbits][coderbits], [on Coderwall][coderwall] |
+
+[semver]: http://semver.org/
+[pvc]: http://docs.rubygems.org/read/chapter/16#page74
+[railsbling]: http://www.railsbling.com
+[peterboling]: http://www.peterboling.com
+[coderbits]: https://coderbits.com/pboling
+[coderwall]: http://coderwall.com/pboling
+[documentation]: http://rdoc.info/github/pboling/strict_states/frames
+[homepage]: https://github.com/pboling/strict_states
+
+
 Expected to be compatible with, and support multiple state machines per model, for:
 
 * The venerable [state_machine](https://github.com/pluginaweek/state_machine) gem (Rails 3 max)
