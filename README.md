@@ -8,7 +8,7 @@ Will raise errors on state machine state typos immediately, so if the code runs 
 | gem name                |  strict_states   |
 | license                 |  MIT              |
 | expert support          |  [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github) |
-| download rank               |  [![Total Downloads](https://img.shields.io/gem/rt/strict_states.svg)](https://rubygems.org/gems/strict_states) |
+| download rank           |  [![Total Downloads](https://img.shields.io/gem/rt/strict_states.svg)](https://rubygems.org/gems/strict_states) |
 | version                 |  [![Gem Version](https://badge.fury.io/rb/strict_states.png)](http://badge.fury.io/rb/strict_states) |
 | dependencies            |  [![Dependency Status](https://gemnasium.com/pboling/strict_states.png)](https://gemnasium.com/pboling/strict_states) |
 | code quality            |  [![Code Climate](https://codeclimate.com/github/pboling/strict_states.png)](https://codeclimate.com/github/pboling/strict_states) |
@@ -18,13 +18,12 @@ Will raise errors on state machine state typos immediately, so if the code runs 
 | homepage                |  [on Github.com][homepage] |
 | documentation           |  [on Rdoc.info][documentation] |
 | live chat               |  [![Join the chat at https://gitter.im/pboling/strict_states](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pboling/strict_states?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [on Coderbits][coderbits], [on Coderwall][coderwall] |
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [on Coderwall][coderwall] |
 
 [semver]: http://semver.org/
 [pvc]: http://docs.rubygems.org/read/chapter/16#page74
 [railsbling]: http://www.railsbling.com
 [peterboling]: http://www.peterboling.com
-[coderbits]: https://coderbits.com/pboling
 [coderwall]: http://coderwall.com/pboling
 [documentation]: http://rdoc.info/github/pboling/strict_states/frames
 [homepage]: https://github.com/pboling/strict_states
@@ -164,8 +163,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/strict_states. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/pboling/strict_states. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
