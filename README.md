@@ -6,7 +6,7 @@ Will raise errors on state machine state typos immediately, so if the code runs 
 | Project                 |  StrictStates    |
 |------------------------ | ----------------- |
 | gem name                |  strict_states   |
-| license                 |  MIT              |
+| license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
 | expert support          |  [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github) |
 | download rank           |  [![Total Downloads](https://img.shields.io/gem/rt/strict_states.svg)](https://rubygems.org/gems/strict_states) |
 | version                 |  [![Gem Version](https://badge.fury.io/rb/strict_states.png)](http://badge.fury.io/rb/strict_states) |
@@ -18,13 +18,14 @@ Will raise errors on state machine state typos immediately, so if the code runs 
 | homepage                |  [on Github.com][homepage] |
 | documentation           |  [on Rdoc.info][documentation] |
 | live chat               |  [![Join the chat at https://gitter.im/pboling/strict_states](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pboling/strict_states?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [on Coderwall][coderwall] |
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [on AngelList][angellist][on Coderwall][coderwall] |
 
 [semver]: http://semver.org/
 [pvc]: http://docs.rubygems.org/read/chapter/16#page74
 [railsbling]: http://www.railsbling.com
 [peterboling]: http://www.peterboling.com
 [coderwall]: http://coderwall.com/pboling
+[angellist]: https://angel.co/peter-boling
 [documentation]: http://rdoc.info/github/pboling/strict_states/frames
 [homepage]: https://github.com/pboling/strict_states
 
